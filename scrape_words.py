@@ -3,7 +3,6 @@ import pdb
 import lxml
 import requests
 import json
-from PasswordGenerator import PasswordGenerator
 
 
 word_lists = {
@@ -53,15 +52,6 @@ def generate_lists(l):
 
 def main():
     generate_lists(word_lists)
-    with open('result.json', 'w') as fp:
-        json.dump(word_lists, fp, indent=4)
-    
-    #pdb.set_trace()
-
-    pgen = PasswordGenerator(nounlist=word_lists['types'][0]['list'], adjlist=word_lists['types'][1]['list'], difficulty=3)
-    print("length = " + str(len(pgen)))
-    print(pgen.generateBasicPassword())
-    print(pgen.generateBasicPassword())
 
 if __name__ == '__main__':
     main()
